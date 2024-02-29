@@ -15,38 +15,19 @@ const page =async ({params}:Params) => {
 
 
   return (
-    <div className='flex flex-col items-center'>
-      <div className='p-2 rounded-md'>
-      {<h1 className='text-center text-2xl'>Curso : <span className='font-bold'>{data.nome}</span></h1>}
-      <h2 className='text-center font-bold'>Aulas: </h2>
-      <ul className='container'>
-        {data.aulas.map((item)=> (
-          <li className='flex my-2 bg-slate-200 items-start rounded-md p-2 flex-col justify-between'>
-              <div className='flex gap-2'>
-             <p>Aula:  </p>
-          <span className='font-semibold'> {item.nome}</span>
-             </div>
-           <div className='flex'>
-          <p>descrição:</p> 
-          <span className='font-semibold'> {item.descricao}</span> 
-          </div>
-          <div className=' flex gap-2'>
-            <p>Duração : </p>
-            <span className='font-semibold'>{item.tempo} Minutos</span>
-          </div>
-          <div className='flex gap-4 my-4'>
-              <button className='bg-blue-600 text-white py-2 px-6 rounded-md'><a href={`/cursos/${params.curso}/${item.slug}`}>ver aula</a></button>
-    
-            </div>  
-          </li>
-          
-        ) )}
+    <div className='p-4'>
+      <h1 className='text-3xl font-bold py-4'>{data.nome}</h1>
+      <p>{data.descricao}</p>
+      <p>total Horas: <strong>{data.total_horas} horas</strong></p>
+      <p>total Aulas: <strong>{data.total_aulas} aulas</strong></p>
+      <h1 className='text-3xl font-bold py-4'>Aulas</h1>
+      <ul>
+        {data.aulas.map((item)=> <li className='flex items-center gap-2'>• <a href={`/cursos/${params.curso}/${item.slug}`} className='underline text-blue-700'>{item.slug}</a></li> )}
       </ul>
-      <div className='mx-auto  flex items-center justify-center'>
-      <button className='bg-white text-black shadow-md border py-2 px-6 rounded-md'><a href={`/cursos`}>← Voltar</a></button>
-      </div>
-      </div>
+      <button><a href="/cursos" className='shadow-md mt-4 border px-6 rounded-md font-bold hover:bg-slate-100 py-2 block'>← Voltar</a></button>
     </div>
+      
+      
   )
 }
 

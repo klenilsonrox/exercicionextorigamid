@@ -16,12 +16,12 @@ const page = async({params}:Params) => {
 
   return (
     <div className='container'>
-      <div className='bg-slate-200 p-2 max-w-sm rounded-md'>
+      <div className=' p-2 max-w-sm rounded-md'>
       <h1>Aula: <strong>{dado.nome}</strong></h1>
       <p>Descriçao : <strong>{dado.descricao}</strong></p>
       <p>Duraçao: <strong>{dado.tempo} Minutos</strong></p>
       <div className='my-4'>
-        <button className='shadow-md py-2 px-6 bg-white rounded-md'><a href={ `/cursos/${params.curso}`}>← voltar</a></button>
+        <button className='shadow-md border py-2 px-6 bg-white rounded-md'><a href={ `/cursos/${params.curso}`}>← voltar</a></button>
       </div>
       </div>
 
